@@ -31,3 +31,9 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### temp ###
+src/main/java/lt/viko/eif/imazolevska/jaxws/practice/
+
+### Results ###
+output/
