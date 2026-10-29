@@ -19,6 +19,7 @@ public class TransformationRunner implements CommandLineRunner {
 
     public void run(String... args) throws Exception {
         htmlTransformer.transform("src/main/resources/xml/directors.xml", "src/main/resources/xsl/directors-html.xsl", "output/directors.html");
+        pdfTransformer.transform("src/main/resources/xml/directors.xml", "src/main/resources/xsl/directors-pdf.xsl", "output/directors.pdf");
 
 
     }

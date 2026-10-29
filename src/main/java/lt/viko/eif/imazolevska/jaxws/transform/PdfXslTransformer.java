@@ -19,6 +19,8 @@ public class PdfXslTransformer implements XslTransformer {
     @Override
     public void transform(String xmlPath, String xslPath, String outputPath) throws Exception {
 
+        new File(outputPath).getParentFile().mkdirs();
+
         FopFactory fopFactory = FopFactory.newInstance(new File(".").toURI());
 
         try (OutputStream out = new BufferedOutputStream(new FileOutputStream(outputPath))) {
