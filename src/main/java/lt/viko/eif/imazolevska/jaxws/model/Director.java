@@ -35,7 +35,7 @@ public class Director {
 
     @XmlJavaTypeAdapter(CharAdapter.class)
     @XmlElement(name = "main-genre")
-    private char mainGenre;
+    private Character mainGenre;
 
     @XmlElementWrapper(name = "movies")
     @XmlElement(name = "movie")
@@ -90,11 +90,11 @@ public class Director {
         this.birthYear = birthYear;
     }
 
-    public char getMainGenre() {
+    public Character getMainGenre() {
         return mainGenre;
     }
 
-    public void setMainGenre(char mainGenre) {
+    public void setMainGenre(Character mainGenre) {
         this.mainGenre = mainGenre;
     }
 

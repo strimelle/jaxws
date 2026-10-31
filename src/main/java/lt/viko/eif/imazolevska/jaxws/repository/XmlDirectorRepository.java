@@ -6,23 +6,19 @@ import jakarta.xml.bind.Unmarshaller;
 import lt.viko.eif.imazolevska.jaxws.model.Director;
 import lt.viko.eif.imazolevska.jaxws.model.DirectorCatalog;
 import org.springframework.stereotype.Service;
-import org.xml.sax.SAXException;
 
-import javax.xml.XMLConstants;
-import javax.xml.validation.Schema;
-import javax.xml.validation.SchemaFactory;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.List;
 
-import static com.ctc.wstx.shaded.msv_core.reader.util.GrammarLoader.loadSchema;
 @Service
-public class XmlDirectorRepository implements DirectorRepository{
+public class XmlDirectorRepository implements DirectorRepository {
 
-    private static final String xmlPath = "src/main/resources/xml/directors.xml";
+    private static final String xmlPath = "resources/xml/directors.xml";
 
     @Override
     public List<Director> findAll() throws JAXBException {
+
 
         FileReader reader = null;
         try {
@@ -34,9 +30,9 @@ public class XmlDirectorRepository implements DirectorRepository{
         JAXBContext jaxbContext = JAXBContext.newInstance(DirectorCatalog.class);
         Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
 
-        DirectorCatalog catalog = (DirectorCatalog) jaxbUnmarshaller.unmarshal(reader);
 
+        DirectorCatalog catalog = (DirectorCatalog) jaxbUnmarshaller.unmarshal(reader);
         return catalog.getDirectors();
     }
-
 }
+

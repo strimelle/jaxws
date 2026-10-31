@@ -9,6 +9,4 @@ import java.util.List;
 public interface DirectorRepository {
 
     List<Director> findAll() throws JAXBException;
-
-    //su vienu metodu „grąžink visus režisierius“
 }
