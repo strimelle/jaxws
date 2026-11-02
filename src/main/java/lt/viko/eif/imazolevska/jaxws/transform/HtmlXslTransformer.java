@@ -8,7 +8,11 @@ import javax.xml.transform.stream.StreamResult;
 import javax.xml.transform.stream.StreamSource;
 import java.io.File;
 
-@Service //paduoti runneriui
+/**
+ * {@link XslTransformer} implementation that transforms XML to HTML.
+ */
+
+@Service
 public class HtmlXslTransformer implements XslTransformer{
 
     @Override

@@ -11,10 +11,14 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.List;
 
+/**
+ * {@link DirectorRepository} implementation that reads directors from an XML file using JAXB.
+ */
+
 @Service
 public class XmlDirectorRepository implements DirectorRepository {
 
-    private static final String xmlPath = "resources/xml/directors.xml";
+    private static final String xmlPath = "src/main/resources/xml/directors.xml";
 
     @Override
     public List<Director> findAll() throws JAXBException {

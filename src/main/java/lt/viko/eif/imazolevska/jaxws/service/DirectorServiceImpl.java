@@ -8,10 +8,20 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * {@link DirectorService} implementation that gets directors from {@link DirectorRepository}.
+ */
+
 @Service
 @WebService(endpointInterface = "lt.viko.eif.imazolevska.jaxws.service.DirectorService")
 public class DirectorServiceImpl implements DirectorService {
     private final DirectorRepository directorRepository;
+
+    /**
+     * Creates the service with the given repository.
+     *
+     * @param directorRepository repository that provides director data
+     */
 
     public DirectorServiceImpl(DirectorRepository directorRepository) {
         this.directorRepository = directorRepository;

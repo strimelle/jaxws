@@ -8,6 +8,11 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Root object of the XML document that holds the list of directors.
+ * Mapped to the {@code <directors>} element.
+ */
+
 @XmlRootElement (name = "directors")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class DirectorCatalog {

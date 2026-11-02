@@ -13,6 +13,11 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 
+/**
+ * {@link XslTransformer} implementation that transforms XML to PDF
+ * using an XSL-FO stylesheet and Apache FOP.
+ */
+
 @Service
 public class PdfXslTransformer implements XslTransformer {
 

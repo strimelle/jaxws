@@ -4,6 +4,10 @@ import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 
+/**
+ * Represents a movie made by a director. Mapped to the {@code <movie>} element.
+ */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Movie {
 

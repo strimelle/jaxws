@@ -9,6 +9,11 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Represents a film director with personal data and a list of movies.
+ * Mapped to the {@code <director>} element.
+ */
+
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Director {
 
@@ -32,6 +37,8 @@ public class Director {
      */
     @XmlElement(name = "active")
     private boolean active;
+
+    /** Main genre code, e.g. 'S' for sci-fi. Written to XML as text by {@link CharAdapter}. */
 
     @XmlJavaTypeAdapter(CharAdapter.class)
     @XmlElement(name = "main-genre")

@@ -5,6 +5,10 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+/**
+ * Generates HTML and PDF files from the directors XML on application startup.
+ */
+
 @Component
 public class TransformationRunner implements CommandLineRunner {
 
@@ -16,6 +20,12 @@ public class TransformationRunner implements CommandLineRunner {
         this.htmlTransformer = htmlTransformer;
     }
 
+    /**
+     * Transforms the directors XML to HTML and PDF.
+     *
+     * @param args command line arguments, not used
+     * @throws Exception if a transformation fails
+     */
 
     public void run(String... args) throws Exception {
         htmlTransformer.transform("src/main/resources/xml/directors.xml", "src/main/resources/xsl/directors-html.xsl", "output/directors.html");
