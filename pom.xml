@@ -67,6 +67,28 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+
+            <plugin>
+                <groupId>com.sun.xml.ws</groupId>
+                <artifactId>jaxws-maven-plugin</artifactId>
+                <version>4.0.3</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <wsdlDirectory>${project.basedir}/src/main/resources/wsdl</wsdlDirectory>
+                    <wsdlFiles>
+                        <wsdlFile>directors.wsdl</wsdlFile>
+                    </wsdlFiles>
+                    <packageName>lt.viko.eif.imazolevska.jaxws.client</packageName>
+                    <sourceDestDir>${project.build.directory}/generated-sources/wsimport</sourceDestDir>
+                </configuration>
+            </plugin>
+
         </plugins>
     </build>
 
