@@ -19,13 +19,27 @@
                     </tr>
                     <xsl:for-each select="directors/director">
                         <tr bgcolor="#f4f1ec">
-                            <td><xsl:value-of select="id"/></td>
-                            <td><xsl:value-of select="first-name"/></td>
-                            <td><xsl:value-of select="last-name"/></td>
-                            <td><xsl:value-of select="birth-year"/></td>
-                            <td><xsl:value-of select="average-rating"/></td>
-                            <td><xsl:value-of select="active"/></td>
-                            <td><xsl:value-of select="main-genre"/></td>
+                            <td>
+                                <xsl:value-of select="id"/>
+                            </td>
+                            <td>
+                                <xsl:value-of select="first-name"/>
+                            </td>
+                            <td>
+                                <xsl:value-of select="last-name"/>
+                            </td>
+                            <td>
+                                <xsl:value-of select="birth-year"/>
+                            </td>
+                            <td>
+                                <xsl:value-of select="average-rating"/>
+                            </td>
+                            <td>
+                                <xsl:value-of select="active"/>
+                            </td>
+                            <td>
+                                <xsl:value-of select="main-genre"/>
+                            </td>
                             <td>
                                 <xsl:for-each select="movies/movie">
                                     <xsl:value-of select="title"/>

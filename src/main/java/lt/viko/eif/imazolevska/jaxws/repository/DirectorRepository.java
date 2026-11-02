@@ -1,6 +1,5 @@
 package lt.viko.eif.imazolevska.jaxws.repository;
 
-import jakarta.jws.WebService;
 import jakarta.xml.bind.JAXBException;
 import lt.viko.eif.imazolevska.jaxws.model.Director;
 

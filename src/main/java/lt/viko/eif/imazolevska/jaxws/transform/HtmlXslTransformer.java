@@ -13,10 +13,10 @@ import java.io.File;
  */
 
 @Service
-public class HtmlXslTransformer implements XslTransformer{
+public class HtmlXslTransformer implements XslTransformer {
 
     @Override
-    public void transform(String xmlPath, String xslPath, String outputPath) throws Exception{
+    public void transform(String xmlPath, String xslPath, String outputPath) throws Exception {
 
         new File(outputPath).getParentFile().mkdirs();
 
@@ -25,10 +25,6 @@ public class HtmlXslTransformer implements XslTransformer{
         transformer.transform(new StreamSource(new File(xmlPath)), new StreamResult(new File(outputPath)));
 
     }
-
-
-
-
 
 
 }

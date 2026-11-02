@@ -37,11 +37,11 @@ public class DirectorServiceImpl implements DirectorService {
     }
 
     @Override
-    public Director getDirectorById(int id){
+    public Director getDirectorById(int id) {
         List<Director> directors = getAllDirectors();
 
-        for(Director director : directors){
-            if(id == director.getId()){
+        for (Director director : directors) {
+            if (id == director.getId()) {
                 return director;
             }
         }

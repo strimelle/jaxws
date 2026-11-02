@@ -21,7 +21,8 @@ public interface DirectorService {
      * @return list of directors
      */
 
-    @WebMethod @WebResult(name = "director")
+    @WebMethod
+    @WebResult(name = "director")
     List<Director> getAllDirectors();
 
     /**
@@ -31,6 +32,7 @@ public interface DirectorService {
      * @return director, or {@code null} if not found
      */
 
-    @WebMethod @WebResult(name = "director")
-    Director getDirectorById(@WebParam(name = "id")int id);
+    @WebMethod
+    @WebResult(name = "director")
+    Director getDirectorById(@WebParam(name = "id") int id);
 }

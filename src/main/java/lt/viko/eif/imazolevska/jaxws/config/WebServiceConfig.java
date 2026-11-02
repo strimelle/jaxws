@@ -16,19 +16,17 @@ public class WebServiceConfig {
     /**
      * Publishes the director service at {@code /services/directors}.
      *
-     * @param bus CXF bus created by Spring Boot
+     * @param bus             CXF bus created by Spring Boot
      * @param directorService service implementation to publish
      * @return published endpoint
      */
 
     @Bean
-    public Endpoint directorEndpoint(Bus bus, DirectorService directorService){
+    public Endpoint directorEndpoint(Bus bus, DirectorService directorService) {
         EndpointImpl endpoint = new EndpointImpl(bus, directorService);
         endpoint.publish("/directors");
         return endpoint;
     }
-
-
 
 
 }

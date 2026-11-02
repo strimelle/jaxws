@@ -38,7 +38,9 @@ public class Director {
     @XmlElement(name = "active")
     private boolean active;
 
-    /** Main genre code, e.g. 'S' for sci-fi. Written to XML as text by {@link CharAdapter}. */
+    /**
+     * Main genre code, e.g. 'S' for sci-fi. Written to XML as text by {@link CharAdapter}.
+     */
 
     @XmlJavaTypeAdapter(CharAdapter.class)
     @XmlElement(name = "main-genre")

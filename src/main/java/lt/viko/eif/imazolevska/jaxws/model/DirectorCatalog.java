@@ -13,10 +13,10 @@ import java.util.List;
  * Mapped to the {@code <directors>} element.
  */
 
-@XmlRootElement (name = "directors")
+@XmlRootElement(name = "directors")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class DirectorCatalog {
-    @XmlElement(name="director")
+    @XmlElement(name = "director")
     private List<Director> directors = new ArrayList<>();
 
     public List<Director> getDirectors() {

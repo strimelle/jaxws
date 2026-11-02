@@ -5,7 +5,8 @@ import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Unmarshaller;
 import lt.viko.eif.imazolevska.jaxws.model.Director;
 import lt.viko.eif.imazolevska.jaxws.model.DirectorCatalog;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
+
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -15,10 +16,10 @@ import java.util.List;
  * {@link DirectorRepository} implementation that reads directors from an XML file using JAXB.
  */
 
-@Service
+@Repository
 public class XmlDirectorRepository implements DirectorRepository {
 
-    private static final String xmlPath = "src/main/resources/xml/directors.xml";
+    private static final String XML_PATH = "src/main/resources/xml/directors.xml";
 
     @Override
     public List<Director> findAll() throws JAXBException {
@@ -26,7 +27,7 @@ public class XmlDirectorRepository implements DirectorRepository {
 
         FileReader reader = null;
         try {
-            reader = new FileReader(xmlPath);
+            reader = new FileReader(XML_PATH);
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }

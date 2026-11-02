@@ -17,7 +17,9 @@
                     <fo:block>
                         <fo:leader leader-pattern="rule" leader-length="17cm"/>
                     </fo:block>
-                    <fo:block>p. <fo:page-number/></fo:block>
+                    <fo:block>p.
+                        <fo:page-number/>
+                    </fo:block>
                 </fo:static-content>
                 <fo:flow flow-name="xsl-region-body">
                     <fo:block font-size="20pt" font-weight="bold" line-height="30pt">
@@ -64,25 +66,39 @@
                             <xsl:for-each select="directors/director">
                                 <fo:table-row background-color="#f4f1ec">
                                     <fo:table-cell border="0.5pt solid black" padding="3pt">
-                                        <fo:block><xsl:value-of select="id"/></fo:block>
+                                        <fo:block>
+                                            <xsl:value-of select="id"/>
+                                        </fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="0.5pt solid black" padding="3pt">
-                                        <fo:block><xsl:value-of select="first-name"/></fo:block>
+                                        <fo:block>
+                                            <xsl:value-of select="first-name"/>
+                                        </fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="0.5pt solid black" padding="3pt">
-                                        <fo:block><xsl:value-of select="last-name"/></fo:block>
+                                        <fo:block>
+                                            <xsl:value-of select="last-name"/>
+                                        </fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="0.5pt solid black" padding="3pt">
-                                        <fo:block><xsl:value-of select="birth-year"/></fo:block>
+                                        <fo:block>
+                                            <xsl:value-of select="birth-year"/>
+                                        </fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="0.5pt solid black" padding="3pt">
-                                        <fo:block><xsl:value-of select="average-rating"/></fo:block>
+                                        <fo:block>
+                                            <xsl:value-of select="average-rating"/>
+                                        </fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="0.5pt solid black" padding="3pt">
-                                        <fo:block><xsl:value-of select="active"/></fo:block>
+                                        <fo:block>
+                                            <xsl:value-of select="active"/>
+                                        </fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="0.5pt solid black" padding="3pt">
-                                        <fo:block><xsl:value-of select="main-genre"/></fo:block>
+                                        <fo:block>
+                                            <xsl:value-of select="main-genre"/>
+                                        </fo:block>
                                     </fo:table-cell>
                                     <fo:table-cell border="0.5pt solid black" padding="3pt">
                                         <xsl:for-each select="movies/movie">
