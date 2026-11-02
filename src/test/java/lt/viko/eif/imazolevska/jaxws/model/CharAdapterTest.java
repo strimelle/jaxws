@@ -13,8 +13,8 @@ class CharAdapterTest {
     void unmarshalReturnsFirstCharacter() {
 
         CharAdapter adapter = new CharAdapter();
-        Character adp = adapter.unmarshal("S");
-        assertEquals('S', adp);
+        Character result = adapter.unmarshal("S");
+        assertEquals('S', result);
     }
 
 }
