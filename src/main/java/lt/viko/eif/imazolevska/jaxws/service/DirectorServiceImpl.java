@@ -3,9 +3,11 @@ package lt.viko.eif.imazolevska.jaxws.service;
 import jakarta.jws.WebService;
 import jakarta.xml.bind.JAXBException;
 import lt.viko.eif.imazolevska.jaxws.model.Director;
+import lt.viko.eif.imazolevska.jaxws.model.Movie;
 import lt.viko.eif.imazolevska.jaxws.repository.DirectorRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -46,5 +48,40 @@ public class DirectorServiceImpl implements DirectorService {
             }
         }
         return null;
+    }
+
+
+    @Override
+    public List<Director> getDirectorsByGenre(String genre) {
+        List<Director> result = new ArrayList<>();
+        if (genre == null || genre.isEmpty()) {
+            return result;
+        }
+
+        char genreCode = Character.toUpperCase(genre.charAt(0));
+        for (Director director : getAllDirectors()) {
+            if (director.getMainGenre() != null && director.getMainGenre() == genreCode) {
+                result.add(director);
+            }
+        }
+        return result;
+    }
+
+    @Override
+    public List<Movie> getAllMovies() {
+        List<Movie> movies = new ArrayList<>();
+        for (Director director : getAllDirectors()) {
+            movies.addAll(director.getMovies());
+        }
+        return movies;
+    }
+
+    @Override
+    public List<Movie> getMoviesByDirectorId(int id) {
+        Director director = getDirectorById(id);
+        if (director == null) {
+            return new ArrayList<>();
+        }
+        return director.getMovies();
     }
 }

@@ -37,3 +37,10 @@ src/main/java/lt/viko/eif/imazolevska/jaxws/practice/
 
 ### Results ###
 output/
+
+###Notes###
+notes.txt
+
+###Postman###
+postman/globals/workspace.globals.yaml
+.postman/resources.yaml
