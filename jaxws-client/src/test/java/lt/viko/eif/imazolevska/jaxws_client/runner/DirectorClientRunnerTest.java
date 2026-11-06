@@ -7,13 +7,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
 /**
- * Tests for {@link SoapConnectionCheckRunner}.
+ * Tests for {@link ClientRunner}.
  */
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.DEFINED_PORT)
 class DirectorClientRunnerTest {
 
     @Autowired
-    private SoapConnectionCheckRunner runner;
+    private ClientRunner runner;
 
     @Test
     void runCallsWebServiceWithoutErrors() {

@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
  * Generates HTML and PDF files from the directors XML on application startup.
  */
 
-@Component
+
 public class TransformationRunner implements CommandLineRunner {
 
     private final XslTransformer pdfTransformer;

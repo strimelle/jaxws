@@ -7,11 +7,11 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 @Component
-public class SoapConnectionCheckRunner implements CommandLineRunner {
+public class ClientRunner implements CommandLineRunner {
 
     private final DirectorService directorSoapClient;
 
-    public SoapConnectionCheckRunner(DirectorService directorService) {
+    public ClientRunner(DirectorService directorService) {
         this.directorSoapClient = directorService;
     }
 
