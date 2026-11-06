@@ -11,7 +11,7 @@ import java.io.File;
 /**
  * {@link XslTransformer} implementation that transforms XML to HTML.
  */
-
+/*
 @Service
 public class HtmlXslTransformer implements XslTransformer {
 
@@ -28,3 +28,4 @@ public class HtmlXslTransformer implements XslTransformer {
 
 
 }
+*/
