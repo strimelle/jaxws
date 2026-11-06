@@ -1,5 +1,6 @@
 package lt.viko.eif.imazolevska.jaxws.model;
 
+import jakarta.persistence.*;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
@@ -7,9 +8,15 @@ import jakarta.xml.bind.annotation.XmlElement;
 /**
  * Represents a movie made by a director. Mapped to the {@code <movie>} element.
  */
-
+@Entity
+@Table(name = "movie")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Movie {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+    private int id;
 
     @XmlElement(name = "title")
     private String title;

@@ -1,0 +1,236 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://service.jaxws.imazolevska.eif.viko.lt/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" name="DirectorServiceImplService" targetNamespace="http://service.jaxws.imazolevska.eif.viko.lt/">
+  <wsdl:types>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://service.jaxws.imazolevska.eif.viko.lt/" elementFormDefault="unqualified" targetNamespace="http://service.jaxws.imazolevska.eif.viko.lt/" version="1.0">
+
+  <xs:element name="getAllDirectors" type="tns:getAllDirectors"/>
+
+  <xs:element name="getAllDirectorsResponse" type="tns:getAllDirectorsResponse"/>
+
+  <xs:element name="getAllMovies" type="tns:getAllMovies"/>
+
+  <xs:element name="getAllMoviesResponse" type="tns:getAllMoviesResponse"/>
+
+  <xs:element name="getDirectorById" type="tns:getDirectorById"/>
+
+  <xs:element name="getDirectorByIdResponse" type="tns:getDirectorByIdResponse"/>
+
+  <xs:element name="getDirectorsByGenre" type="tns:getDirectorsByGenre"/>
+
+  <xs:element name="getDirectorsByGenreResponse" type="tns:getDirectorsByGenreResponse"/>
+
+  <xs:element name="getMoviesByDirectorId" type="tns:getMoviesByDirectorId"/>
+
+  <xs:element name="getMoviesByDirectorIdResponse" type="tns:getMoviesByDirectorIdResponse"/>
+
+  <xs:complexType name="getDirectorById">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getDirectorByIdResponse">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="director" type="tns:director"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="director">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element minOccurs="0" name="first-name" type="xs:string"/>
+      <xs:element minOccurs="0" name="last-name" type="xs:string"/>
+      <xs:element name="birth-year" type="xs:int"/>
+      <xs:element name="average-rating" type="xs:float"/>
+      <xs:element name="active" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="main-genre" type="xs:string"/>
+      <xs:element minOccurs="0" name="movies">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="movie" type="tns:movie"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="movie">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element minOccurs="0" name="title" type="xs:string"/>
+      <xs:element name="release-year" type="xs:int"/>
+      <xs:element name="rating" type="xs:float"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getMoviesByDirectorId">
+    <xs:sequence>
+      <xs:element name="id" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getMoviesByDirectorIdResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="movie" type="tns:movie"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getAllDirectors">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getAllDirectorsResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="director" type="tns:director"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getAllMovies">
+    <xs:sequence/>
+  </xs:complexType>
+
+  <xs:complexType name="getAllMoviesResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="movie" type="tns:movie"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getDirectorsByGenre">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="genre" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="getDirectorsByGenreResponse">
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="director" type="tns:director"/>
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>
+  </wsdl:types>
+  <wsdl:message name="getMoviesByDirectorIdResponse">
+    <wsdl:part element="tns:getMoviesByDirectorIdResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDirectorByIdResponse">
+    <wsdl:part element="tns:getDirectorByIdResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllMovies">
+    <wsdl:part element="tns:getAllMovies" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDirectorsByGenre">
+    <wsdl:part element="tns:getDirectorsByGenre" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDirectorById">
+    <wsdl:part element="tns:getDirectorById" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getMoviesByDirectorId">
+    <wsdl:part element="tns:getMoviesByDirectorId" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllMoviesResponse">
+    <wsdl:part element="tns:getAllMoviesResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllDirectorsResponse">
+    <wsdl:part element="tns:getAllDirectorsResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getDirectorsByGenreResponse">
+    <wsdl:part element="tns:getDirectorsByGenreResponse" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="getAllDirectors">
+    <wsdl:part element="tns:getAllDirectors" name="parameters">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="DirectorService">
+    <wsdl:operation name="getDirectorById">
+      <wsdl:input message="tns:getDirectorById" name="getDirectorById">
+    </wsdl:input>
+      <wsdl:output message="tns:getDirectorByIdResponse" name="getDirectorByIdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMoviesByDirectorId">
+      <wsdl:input message="tns:getMoviesByDirectorId" name="getMoviesByDirectorId">
+    </wsdl:input>
+      <wsdl:output message="tns:getMoviesByDirectorIdResponse" name="getMoviesByDirectorIdResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllDirectors">
+      <wsdl:input message="tns:getAllDirectors" name="getAllDirectors">
+    </wsdl:input>
+      <wsdl:output message="tns:getAllDirectorsResponse" name="getAllDirectorsResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllMovies">
+      <wsdl:input message="tns:getAllMovies" name="getAllMovies">
+    </wsdl:input>
+      <wsdl:output message="tns:getAllMoviesResponse" name="getAllMoviesResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDirectorsByGenre">
+      <wsdl:input message="tns:getDirectorsByGenre" name="getDirectorsByGenre">
+    </wsdl:input>
+      <wsdl:output message="tns:getDirectorsByGenreResponse" name="getDirectorsByGenreResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DirectorServiceImplServiceSoapBinding" type="tns:DirectorService">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="getDirectorById">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getDirectorById">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getDirectorByIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getMoviesByDirectorId">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getMoviesByDirectorId">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getMoviesByDirectorIdResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllDirectors">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getAllDirectors">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAllDirectorsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getAllMovies">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getAllMovies">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getAllMoviesResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDirectorsByGenre">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="getDirectorsByGenre">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="getDirectorsByGenreResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="DirectorServiceImplService">
+    <wsdl:port binding="tns:DirectorServiceImplServiceSoapBinding" name="DirectorServiceImplPort">
+      <soap:address location="http://localhost:8082/services/directors"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

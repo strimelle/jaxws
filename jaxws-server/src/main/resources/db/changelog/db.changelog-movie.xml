@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="create-movie-table" author="imazolevska">
+        <createTable tableName="movie">
+            <column name="id" type="INT">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="title" type="VARCHAR(255)"/>
+            <column name="release_year" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rating" type="REAL">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+
+    <changeSet id="insert-movies" author="imazolevska">
+        <insert tableName="movie">
+            <column name="id" valueNumeric="1"/>
+            <column name="title" value="Memento"/>
+            <column name="release_year" valueNumeric="2000"/>
+            <column name="rating" valueNumeric="8.4"/>
+        </insert>
+        <insert tableName="movie">
+            <column name="id" valueNumeric="2"/>
+            <column name="title" value="The Dark Knight"/>
+            <column name="release_year" valueNumeric="2008"/>
+            <column name="rating" valueNumeric="9.0"/>
+        </insert>
+        <insert tableName="movie">
+            <column name="id" valueNumeric="3"/>
+            <column name="title" value="Inception"/>
+            <column name="release_year" valueNumeric="2010"/>
+            <column name="rating" valueNumeric="8.8"/>
+        </insert>
+        <insert tableName="movie">
+            <column name="id" valueNumeric="4"/>
+            <column name="title" value="Interstellar"/>
+            <column name="release_year" valueNumeric="2014"/>
+            <column name="rating" valueNumeric="8.7"/>
+        </insert>
+        <insert tableName="movie">
+            <column name="id" valueNumeric="5"/>
+            <column name="title" value="Jaws"/>
+            <column name="release_year" valueNumeric="1975"/>
+            <column name="rating" valueNumeric="8.1"/>
+        </insert>
+        <insert tableName="movie">
+            <column name="id" valueNumeric="6"/>
+            <column name="title" value="Jurassic Park"/>
+            <column name="release_year" valueNumeric="1993"/>
+            <column name="rating" valueNumeric="8.2"/>
+        </insert>
+        <insert tableName="movie">
+            <column name="id" valueNumeric="7"/>
+            <column name="title" value="Schindler's List"/>
+            <column name="release_year" valueNumeric="1993"/>
+            <column name="rating" valueNumeric="9.0"/>
+        </insert>
+        <insert tableName="movie">
+            <column name="id" valueNumeric="8"/>
+            <column name="title" value="Saving Private Ryan"/>
+            <column name="release_year" valueNumeric="1998"/>
+            <column name="rating" valueNumeric="8.6"/>
+        </insert>
+        <insert tableName="movie">
+            <column name="id" valueNumeric="9"/>
+            <column name="title" value="Reservoir Dogs"/>
+            <column name="release_year" valueNumeric="1992"/>
+            <column name="rating" valueNumeric="8.3"/>
+        </insert>
+        <insert tableName="movie">
+            <column name="id" valueNumeric="10"/>
+            <column name="title" value="Pulp Fiction"/>
+            <column name="release_year" valueNumeric="1994"/>
+            <column name="rating" valueNumeric="8.8"/>
+        </insert>
+        <insert tableName="movie">
+            <column name="id" valueNumeric="11"/>
+            <column name="title" value="Kill Bill: Vol. 1"/>
+            <column name="release_year" valueNumeric="2003"/>
+            <column name="rating" valueNumeric="8.2"/>
+        </insert>
+        <insert tableName="movie">
+            <column name="id" valueNumeric="12"/>
+            <column name="title" value="Django Unchained"/>
+            <column name="release_year" valueNumeric="2012"/>
+            <column name="rating" valueNumeric="8.5"/>
+        </insert>
+        <insert tableName="movie">
+            <column name="id" valueNumeric="13"/>
+            <column name="title" value="Lady Bird"/>
+            <column name="release_year" valueNumeric="2017"/>
+            <column name="rating" valueNumeric="7.4"/>
+        </insert>
+        <insert tableName="movie">
+            <column name="id" valueNumeric="14"/>
+            <column name="title" value="Little Women"/>
+            <column name="release_year" valueNumeric="2019"/>
+            <column name="rating" valueNumeric="7.8"/>
+        </insert>
+        <insert tableName="movie">
+            <column name="id" valueNumeric="15"/>
+            <column name="title" value="Barbie"/>
+            <column name="release_year" valueNumeric="2023"/>
+            <column name="rating" valueNumeric="6.8"/>
+        </insert>
+        <insert tableName="movie">
+            <column name="id" valueNumeric="16"/>
+            <column name="title" value="Prisoners"/>
+            <column name="release_year" valueNumeric="2013"/>
+            <column name="rating" valueNumeric="8.1"/>
+        </insert>
+        <insert tableName="movie">
+            <column name="id" valueNumeric="17"/>
+            <column name="title" value="Arrival"/>
+            <column name="release_year" valueNumeric="2016"/>
+            <column name="rating" valueNumeric="7.9"/>
+        </insert>
+        <insert tableName="movie">
+            <column name="id" valueNumeric="18"/>
+            <column name="title" value="Blade Runner 2049"/>
+            <column name="release_year" valueNumeric="2017"/>
+            <column name="rating" valueNumeric="8.0"/>
+        </insert>
+        <insert tableName="movie">
+            <column name="id" valueNumeric="19"/>
+            <column name="title" value="Rear Window"/>
+            <column name="release_year" valueNumeric="1954"/>
+            <column name="rating" valueNumeric="8.5"/>
+        </insert>
+        <insert tableName="movie">
+            <column name="id" valueNumeric="20"/>
+            <column name="title" value="Vertigo"/>
+            <column name="release_year" valueNumeric="1958"/>
+            <column name="rating" valueNumeric="8.2"/>
+        </insert>
+        <insert tableName="movie">
+            <column name="id" valueNumeric="21"/>
+            <column name="title" value="Psycho"/>
+            <column name="release_year" valueNumeric="1960"/>
+            <column name="rating" valueNumeric="8.5"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

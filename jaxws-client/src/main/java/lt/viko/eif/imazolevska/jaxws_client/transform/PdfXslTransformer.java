@@ -1,4 +1,4 @@
-package lt.viko.eif.imazolevska.jaxws.transform;
+package lt.viko.eif.imazolevska.jaxws_client.transform;
 
 import org.apache.fop.apps.Fop;
 import org.apache.fop.apps.FopFactory;

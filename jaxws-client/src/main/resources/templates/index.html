@@ -1,37 +1,16 @@
 <!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org">
+<html lang="en">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Directors</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Directors reports</title>
     <style>
-        :root {
-            --background: #f4f1ec;
-            --card: #ffffff;
-            --text: #2b2b2b;
-            --muted: #7a7a7a;
-            --accent: #3d3a4b;
-            --accent-text: #ffffff;
-            --border: #e6e2da;
-        }
-
-        @media (prefers-color-scheme: dark) {
-            :root {
-                --background: #1e1d24;
-                --card: #2a2833;
-                --text: #ececec;
-                --muted: #a8a6b3;
-                --accent: #8f86c9;
-                --accent-text: #1e1d24;
-                --border: #3b3946;
-            }
-        }
-
         body {
             margin: 0;
-            padding: 40px 20px;
-            font-family: Verdana, Arial, sans-serif;
-            background-color: var(--background);
-            color: var(--text);
+            padding: 48px 20px;
+            font-family: "Segoe UI", Verdana, Arial, sans-serif;
+            background-color: #f4f1ec;
+            color: #2b2b2b;
         }
 
         main {
@@ -40,110 +19,179 @@
         }
 
         h1 {
-            margin: 0 0 4px 0;
+            margin: 0 0 28px 0;
         }
 
-        .subtitle {
-            margin: 0 0 32px 0;
-            color: var(--muted);
+        .reports {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 12px;
         }
 
-        .card {
-            background-color: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 20px 24px;
-            margin-bottom: 20px;
+        .reports input {
+            position: absolute;
+            opacity: 0;
         }
 
-        .card h2 {
-            margin: 0 0 6px 0;
-            font-size: 18px;
-        }
-
-        .card p {
-            margin: 0 0 16px 0;
-            color: var(--muted);
-            font-size: 14px;
-        }
-
-        .button,
-        button {
-            display: inline-block;
-            margin: 0 8px 8px 0;
-            padding: 10px 18px;
-            border: none;
-            border-radius: 6px;
-            background-color: var(--accent);
-            color: var(--accent-text);
-            font-family: inherit;
-            font-size: 14px;
-            text-decoration: none;
+        .reports label {
+            display: block;
+            padding: 16px;
+            border: 2px solid #e2ddd4;
+            border-radius: 10px;
+            background-color: #ffffff;
+            font-weight: 600;
             cursor: pointer;
         }
 
-        .button:hover,
-        button:hover {
-            opacity: 0.85;
+        .reports input:checked + label {
+            border-color: #3d3a4b;
+            background-color: #ebe8f3;
         }
 
-        label {
+        .reports input:focus-visible + label {
+            outline: 3px solid #3d3a4b;
+            outline-offset: 2px;
+        }
+
+        .choice {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .choice.visible {
             display: block;
-            margin-bottom: 6px;
-            font-size: 14px;
         }
 
         select {
             width: 100%;
-            margin-bottom: 14px;
-            padding: 8px;
-            border: 1px solid var(--border);
-            border-radius: 6px;
-            background-color: var(--card);
-            color: var(--text);
+            padding: 10px;
+            border: 1px solid #e2ddd4;
+            border-radius: 8px;
+            background-color: #ffffff;
             font-family: inherit;
-            font-size: 14px;
+            font-size: 15px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 12px;
+            margin-top: 24px;
+        }
+
+        .buttons button {
+            padding: 12px 32px;
+            border: none;
+            border-radius: 8px;
+            background-color: #3d3a4b;
+            color: #ffffff;
+            font-family: inherit;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .buttons button:hover {
+            opacity: 0.9;
         }
     </style>
 </head>
 <body>
-<form action="#" th:action="@{/greeting}" th:object="${greeting}" method="post">
 <main>
-    <h1>Directors</h1>
-    <p class="subtitle">Reports about film directors and their movies</p>
+    <h1>Directors reports</h1>
 
-    <section class="card">
-        <h2>All directors</h2>
-        <p>Report with all directors and their movies.</p>
+    <form id="report-form">
+        <div class="reports">
+            <div>
+                <input type="radio" id="all-directors" name="type" value="all-directors" checked>
+                <label for="all-directors">All directors</label>
+            </div>
+            <div>
+                <input type="radio" id="by-genre" name="type" value="by-genre">
+                <label for="by-genre">Directors by genre</label>
+            </div>
+            <div>
+                <input type="radio" id="one-director" name="type" value="one-director">
+                <label for="one-director">One director</label>
+            </div>
+            <div>
+                <input type="radio" id="all-movies" name="type" value="all-movies">
+                <label for="all-movies">All movies</label>
+            </div>
+            <div>
+                <input type="radio" id="director-movies" name="type" value="director-movies">
+                <label for="director-movies">Movies of a director</label>
+            </div>
+        </div>
 
-        <!-- TODO: put the address of the HTML report endpoint in href -->
-        <a class="button" href="#">Get HTML</a>
-
-        <!-- TODO: put the address of the PDF report endpoint in href -->
-        <a class="button" href="#">Get PDF</a>
-    </section>
-
-    <section class="card">
-        <h2>Directors by genre</h2>
-        <p>Report with directors of the selected main genre.</p>
-
-        <!-- TODO: put the address of the PDF report endpoint in action -->
-        <form action="#" method="get">
-            <label for="genre">Main genre</label>
-            <select id="genre" name="genre">
+        <div class="choice" id="genre-choice">
+            <select id="genre" aria-label="Genre">
                 <option value="S">Sci-fi</option>
                 <option value="A">Adventure</option>
                 <option value="C">Crime</option>
                 <option value="D">Drama</option>
                 <option value="T">Thriller</option>
             </select>
+        </div>
 
-            <!-- TODO: put the address of the HTML report endpoint in formaction -->
-            <button type="submit" formaction="#">Get HTML</button>
-            <button type="submit">Get PDF</button>
-        </form>
-    </section>
+        <div class="choice" id="director-choice">
+            <select id="director" aria-label="Director">
+                <option value="1">Christopher Nolan</option>
+                <option value="2">Steven Spielberg</option>
+                <option value="3">Quentin Tarantino</option>
+                <option value="4">Greta Gerwig</option>
+                <option value="5">Denis Villeneuve</option>
+                <option value="6">Alfred Hitchcock</option>
+            </select>
+        </div>
+
+        <div class="buttons">
+            <button type="button" data-format="html" href="/directors.html">HTML</button>
+            <button type="button" data-format="pdf" href="/directors.pdf">PDF</button>
+        </div>
+    </form>
 </main>
-</form>
+
+<script>
+    const form = document.getElementById("report-form");
+
+    function selectedType() {
+        return form.elements["type"].value;
+    }
+
+    function buildUrl(format) {
+        const genre = document.getElementById("genre").value;
+        const director = document.getElementById("director").value;
+
+        switch (selectedType()) {
+            case "by-genre":
+                return "/directors/" + format + "?genre=" + genre;
+            case "one-director":
+                return "/director/" + format + "?id=" + director;
+            case "all-movies":
+                return "/movies/" + format;
+            case "director-movies":
+                return "/movies/" + format + "?directorId=" + director;
+            default:
+                return "/directors/" + format;
+        }
+    }
+
+    function showChoice() {
+        const type = selectedType();
+        document.getElementById("genre-choice").classList.toggle("visible", type === "by-genre");
+        document.getElementById("director-choice").classList.toggle("visible",
+            type === "one-director" || type === "director-movies");
+    }
+
+    form.addEventListener("change", showChoice);
+
+    document.querySelectorAll(".buttons button").forEach(button => {
+        button.addEventListener("click", () => {
+            window.open(buildUrl(button.dataset.format), "_blank");
+        });
+    });
+
+    showChoice();
+</script>
 </body>
 </html>

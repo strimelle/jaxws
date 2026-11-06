@@ -1,4 +1,4 @@
-package lt.viko.eif.imazolevska.jaxws.transform;
+package lt.viko.eif.imazolevska.jaxws_client.transform;
 
 /**
  * Transforms an XML document to another format using an XSL stylesheet.

@@ -1,6 +1,6 @@
-package lt.viko.eif.imazolevska.jaxws.runner;
+package lt.viko.eif.imazolevska.jaxws_client.runner;
 
-import lt.viko.eif.imazolevska.jaxws.transform.XslTransformer;
+import lt.viko.eif.imazolevska.jaxws_client.transform.XslTransformer;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;

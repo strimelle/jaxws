@@ -1,4 +1,4 @@
-package lt.viko.eif.imazolevska.jaxws.runner;
+package lt.viko.eif.imazolevska.jaxws_client.runner;
 
 import lt.viko.eif.imazolevska.jaxws.transform.XslTransformer;
 import org.junit.jupiter.api.Test;

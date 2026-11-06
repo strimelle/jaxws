@@ -1,10 +1,10 @@
 package lt.viko.eif.imazolevska.jaxws.service;
 
 import jakarta.jws.WebService;
-import jakarta.xml.bind.JAXBException;
 import lt.viko.eif.imazolevska.jaxws.model.Director;
 import lt.viko.eif.imazolevska.jaxws.model.Movie;
 import lt.viko.eif.imazolevska.jaxws.repository.DirectorRepository;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -31,23 +31,12 @@ public class DirectorServiceImpl implements DirectorService {
 
     @Override
     public List<Director> getAllDirectors() {
-        try {
-            return directorRepository.findAll();
-        } catch (JAXBException e) {
-            throw new RuntimeException(e);
-        }
+        return directorRepository.findAll(Sort.by("id"));
     }
 
     @Override
     public Director getDirectorById(int id) {
-        List<Director> directors = getAllDirectors();
-
-        for (Director director : directors) {
-            if (id == director.getId()) {
-                return director;
-            }
-        }
-        return null;
+        return directorRepository.findById(id).orElse(null);
     }
 
 
@@ -59,12 +48,7 @@ public class DirectorServiceImpl implements DirectorService {
         }
 
         char genreCode = Character.toUpperCase(genre.charAt(0));
-        for (Director director : getAllDirectors()) {
-            if (director.getMainGenre() != null && director.getMainGenre() == genreCode) {
-                result.add(director);
-            }
-        }
-        return result;
+        return directorRepository.findByMainGenre(genreCode);
     }
 
     @Override

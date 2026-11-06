@@ -1,5 +1,6 @@
 package lt.viko.eif.imazolevska.jaxws.model;
 
+import jakarta.persistence.*;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
@@ -13,10 +14,14 @@ import java.util.List;
  * Represents a film director with personal data and a list of movies.
  * Mapped to the {@code <director>} element.
  */
-
+@Entity
+@Table(name="director")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Director {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     @XmlElement(name = "id")
     private int id;
 
@@ -46,6 +51,11 @@ public class Director {
     @XmlElement(name = "main-genre")
     private Character mainGenre;
 
+    @OneToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "director_movies",
+            joinColumns = @JoinColumn(name = "director_id"),
+            inverseJoinColumns = @JoinColumn(name = "movie_id")
+    )
     @XmlElementWrapper(name = "movies")
     @XmlElement(name = "movie")
     private List<Movie> movies = new ArrayList<>();

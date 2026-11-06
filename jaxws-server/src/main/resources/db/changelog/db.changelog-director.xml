@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="create-director-table" author="imazolevska">
+        <createTable tableName="director">
+            <column name="id" type="INT">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="first_name" type="VARCHAR(255)"/>
+            <column name="last_name" type="VARCHAR(255)"/>
+            <column name="birth_year" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="average_rating" type="REAL">
+                <constraints nullable="false"/>
+            </column>
+            <column name="active" type="BOOLEAN">
+                <constraints nullable="false"/>
+            </column>
+            <column name="main_genre" type="CHAR(1)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="insert-directors" author="imazolevska">
+        <insert tableName="director">
+            <column name="id" valueNumeric="1"/>
+            <column name="first_name" value="Christopher"/>
+            <column name="last_name" value="Nolan"/>
+            <column name="birth_year" valueNumeric="1970"/>
+            <column name="average_rating" valueNumeric="8.6"/>
+            <column name="active" valueBoolean="true"/>
+            <column name="main_genre" value="S"/>
+        </insert>
+        <insert tableName="director">
+            <column name="id" valueNumeric="2"/>
+            <column name="first_name" value="Steven"/>
+            <column name="last_name" value="Spielberg"/>
+            <column name="birth_year" valueNumeric="1946"/>
+            <column name="average_rating" valueNumeric="8.5"/>
+            <column name="active" valueBoolean="true"/>
+            <column name="main_genre" value="A"/>
+        </insert>
+        <insert tableName="director">
+            <column name="id" valueNumeric="3"/>
+            <column name="first_name" value="Quentin"/>
+            <column name="last_name" value="Tarantino"/>
+            <column name="birth_year" valueNumeric="1963"/>
+            <column name="average_rating" valueNumeric="8.5"/>
+            <column name="active" valueBoolean="true"/>
+            <column name="main_genre" value="C"/>
+        </insert>
+        <insert tableName="director">
+            <column name="id" valueNumeric="4"/>
+            <column name="first_name" value="Greta"/>
+            <column name="last_name" value="Gerwig"/>
+            <column name="birth_year" valueNumeric="1983"/>
+            <column name="average_rating" valueNumeric="7.3"/>
+            <column name="active" valueBoolean="true"/>
+            <column name="main_genre" value="D"/>
+        </insert>
+        <insert tableName="director">
+            <column name="id" valueNumeric="5"/>
+            <column name="first_name" value="Denis"/>
+            <column name="last_name" value="Villeneuve"/>
+            <column name="birth_year" valueNumeric="1967"/>
+            <column name="average_rating" valueNumeric="8.0"/>
+            <column name="active" valueBoolean="true"/>
+            <column name="main_genre" value="S"/>
+        </insert>
+        <insert tableName="director">
+            <column name="id" valueNumeric="6"/>
+            <column name="first_name" value="Alfred"/>
+            <column name="last_name" value="Hitchcock"/>
+            <column name="birth_year" valueNumeric="1899"/>
+            <column name="average_rating" valueNumeric="8.4"/>
+            <column name="active" valueBoolean="false"/>
+            <column name="main_genre" value="T"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>
