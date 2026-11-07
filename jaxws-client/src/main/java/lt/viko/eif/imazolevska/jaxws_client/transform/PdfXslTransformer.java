@@ -2,16 +2,14 @@ package lt.viko.eif.imazolevska.jaxws_client.transform;
 
 import org.apache.fop.apps.Fop;
 import org.apache.fop.apps.FopFactory;
+import org.apache.fop.apps.MimeConstants;
 import org.springframework.stereotype.Service;
 
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.sax.SAXResult;
 import javax.xml.transform.stream.StreamSource;
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.OutputStream;
+import java.io.*;
 
 /**
  * {@link XslTransformer} implementation that transforms XML to PDF
@@ -21,21 +19,17 @@ import java.io.OutputStream;
 @Service
 public class PdfXslTransformer implements XslTransformer {
 
-    @Override
-    public void transform(String xmlPath, String xslPath, String outputPath) throws Exception {
+    private static final FopFactory FOP_FACTORY = FopFactory.newInstance(new File(".").toURI());
 
-        new File(outputPath).getParentFile().mkdirs();
+    public byte[] transform(String xml, String xslName) throws Exception {
 
-        FopFactory fopFactory = FopFactory.newInstance(new File(".").toURI());
+            ByteArrayOutputStream out = new ByteArrayOutputStream();
+            Fop fop = FOP_FACTORY.newFop(MimeConstants.MIME_PDF, out);
 
-        try (OutputStream out = new BufferedOutputStream(new FileOutputStream(outputPath))) {
-            Fop fop = fopFactory.newFop("application/pdf", out);
+            Transformer transformer = TransformerFactory.newInstance().newTransformer(new StreamSource(xslName));
+            transformer.transform(new StreamSource(new StringReader(xml)), new SAXResult(fop.getDefaultHandler()));
 
-            TransformerFactory factory = TransformerFactory.newInstance();
-            Transformer transformer = factory.newTransformer(new StreamSource(new File(xslPath)));
+            return out.toByteArray();
 
-            transformer.transform(new StreamSource(new File(xmlPath)), new SAXResult(fop.getDefaultHandler()));
-
-        }
     }
 }

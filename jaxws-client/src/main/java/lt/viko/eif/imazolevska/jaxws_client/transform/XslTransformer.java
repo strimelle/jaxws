@@ -6,6 +6,6 @@ package lt.viko.eif.imazolevska.jaxws_client.transform;
 
 public interface XslTransformer {
 
-    byte[] transform(byte[] xml, String xslPath) throws Exception;
+    byte[] transform(String xml, String xslPath) throws Exception;
 
 }
