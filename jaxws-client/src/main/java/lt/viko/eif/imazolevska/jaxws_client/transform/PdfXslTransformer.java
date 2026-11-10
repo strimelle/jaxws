@@ -9,7 +9,9 @@ import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
 import javax.xml.transform.sax.SAXResult;
 import javax.xml.transform.stream.StreamSource;
-import java.io.*;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.StringReader;
 
 /**
  * {@link XslTransformer} implementation that transforms XML to PDF
@@ -23,13 +25,13 @@ public class PdfXslTransformer implements XslTransformer {
 
     public byte[] transform(String xml, String xslName) throws Exception {
 
-            ByteArrayOutputStream out = new ByteArrayOutputStream();
-            Fop fop = FOP_FACTORY.newFop(MimeConstants.MIME_PDF, out);
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        Fop fop = FOP_FACTORY.newFop(MimeConstants.MIME_PDF, out);
 
-            Transformer transformer = TransformerFactory.newInstance().newTransformer(new StreamSource(xslName));
-            transformer.transform(new StreamSource(new StringReader(xml)), new SAXResult(fop.getDefaultHandler()));
+        Transformer transformer = TransformerFactory.newInstance().newTransformer(new StreamSource(xslName));
+        transformer.transform(new StreamSource(new StringReader(xml)), new SAXResult(fop.getDefaultHandler()));
 
-            return out.toByteArray();
+        return out.toByteArray();
 
     }
 }

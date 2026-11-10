@@ -3,7 +3,6 @@ package lt.viko.eif.imazolevska.jaxws_client.runner;
 import lt.viko.eif.imazolevska.jaxws_client.transform.XslTransformer;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.stereotype.Component;
 
 /**
  * Generates HTML and PDF files from the directors XML on application startup.
@@ -28,8 +27,8 @@ public class TransformationRunner implements CommandLineRunner {
      */
 
     public void run(String... args) throws Exception {
-     //   htmlTransformer.transform("src/main/resources/xsl/directors-html.xsl", "output/directors.html");
-     //   pdfTransformer.transform("src/main/resources/xml/directors.xml", "src/main/resources/xsl/directors-pdf.xsl", "output/directors.pdf");
+        //   htmlTransformer.transform("src/main/resources/xsl/directors-html.xsl", "output/directors.html");
+        //   pdfTransformer.transform("src/main/resources/xml/directors.xml", "src/main/resources/xsl/directors-pdf.xsl", "output/directors.pdf");
 
 
     }
