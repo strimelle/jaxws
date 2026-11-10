@@ -5,6 +5,7 @@ import jakarta.xml.bind.JAXBException;
 import jakarta.xml.bind.Marshaller;
 import lt.viko.eif.imazolevska.jaxws_client.wrap.DataList;
 import lt.viko.eif.imazolevska.jaxws_client.wrap.DirectorList;
+import lt.viko.eif.imazolevska.jaxws_client.wrap.MovieList;
 
 import java.io.StringWriter;
 
